@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html ng-app="app">
+
+<head>
+</head>
+
+<body ng-controller="mainCtrl">
+    <input ng-model='filter.name'>
+    <input ng-model='filter.age'>
+    <br>
+    <select ng-model="order" ng-options="opt for opt in opts">
+    </select>
+    <select ng-model="direction" ng-options="dir.value as dir.name for dir in directions"></select>
+    <div ng-repeat="friend in friends | filter: filter | orderBy: direction + order">
+
+        Name: {{ friend.name }} Age: {{ friend.age}}
+        <hr/>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.js"></script>
+    <script src="./app/app.js"> </script>
+    <script src="./app/controllers/mainCtrl.js"></script>
+</body>
+
+</html>
